@@ -14,5 +14,7 @@ c3p0-config.xml
 my.properties
 dbconfig.properties
 *.war
+*.png
+*.jpg
 
  
