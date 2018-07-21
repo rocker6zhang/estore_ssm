@@ -13,4 +13,6 @@ note
 c3p0-config.xml
 my.properties
 dbconfig.properties
+*.war
+
  
