@@ -13,6 +13,7 @@ import com.estore.bean.User;
 import com.estore.dao.CartMapper;
 import com.estore.dao.ProductMapper;
 import com.estore.dao.UserMapper;
+import com.estore.service.VisitLogService;
 
 
 /**
@@ -28,18 +29,12 @@ public class ServiceTest extends TestCase {
 	//com.estore.dao.ProductMapper.java
 	//com.estore.dao.ProductMapper
 	@Autowired
-	ProductMapper productMapper;
-	@Autowired
-	CartMapper cartMapper;
-	@Autowired
-	UserMapper userMapper;
+	VisitLogService visitLogService;
 	
 	
-	@Autowired
-	SqlSession sqlSession;
 	
 	@Test
 	public void test() {
-		
+		System.out.println(visitLogService.getVisitLog(588).getVisitTime());
 	}
 }

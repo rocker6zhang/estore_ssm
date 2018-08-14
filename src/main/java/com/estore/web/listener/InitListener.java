@@ -46,7 +46,8 @@ public class InitListener implements ServletContextListener {
     		sc.setAttribute(key,r.getString(key));
     	}
     	
-    	sc.setAttribute("APP_PATH","/estore_ssm");
+    	
+    	System.out.println("info:--------  application context 作用域 配制参数加载完成");
     	
     	
          // TODO Auto-generated method stub

@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.estore.bean.Cart;
-import com.estore.bean.JsonMsg;
 import com.estore.bean.Product;
 import com.estore.bean.User;
 import com.estore.service.CartService;
 import com.estore.service.IndexElementService;
 import com.estore.service.ProductService;
+import com.estore.utils.JsonMsg;
 
 //标注为控制器,  已经配制了自动扫描
 @Controller

@@ -18,6 +18,8 @@ import com.estore.dao.CartMapper;
 import com.estore.dao.OrderMapper;
 import com.estore.dao.ProductMapper;
 import com.estore.dao.UserMapper;
+import com.estore.service.UserService;
+import com.estore.service.impl.UserServiceimpl;
 import com.estore.utils.OpenAPI;
 
 
@@ -54,5 +56,17 @@ public class UitlsTest extends TestCase {
 		System.out.println(OpenAPI.getCityWithIP("192.168.1.1"));
 		System.out.println(OpenAPI.getCityWithIP("116.4.97.132"));
 		System.out.println(OpenAPI.getInfoWithIP("116.4.97.132"));
+	}
+	
+	@Test
+	public void testInstanceof() {
+		System.out.println(new Date());
+		
+		UserServiceimpl userServiceimpl = new UserServiceimpl();
+		new Exception();
+		System.out.println(userServiceimpl instanceof UserServiceimpl);
+		System.out.println(userServiceimpl instanceof UserService);
+		System.out.println(userServiceimpl instanceof Object);
+		System.out.println(userServiceimpl instanceof CartMapper);
 	}
 }

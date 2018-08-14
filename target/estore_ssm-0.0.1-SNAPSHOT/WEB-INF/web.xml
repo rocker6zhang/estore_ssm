@@ -2,16 +2,20 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	id="WebApp_ID" version="2.5">
+	id="WebApp_ID" 
 	
 	
-  <display-name>estore_ssm</display-name>
-  <!--1、启动Spring的容器  -->
+	version="2.5">
+	<!-- 处理异常  : Cannot change version of project facet Dynamic Web Module to 2.5.	estore_ssm		line 1	Maven Java EE Configuration Problem
+	-->
+	
+    <display-name>estore_ssm</display-name>
+    <!--1、启动Spring的容器  -->
 	<!-- needed for ContextLoaderListener -->
 	<!-- 指定spring配置文件位置 -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:applicationContext.xml</param-value>
+		<param-value>classpath:spring/applicationContext-*.xml</param-value>
 	</context-param>
 
 	<!-- Bootstraps the root web application context before servlet initialization -->

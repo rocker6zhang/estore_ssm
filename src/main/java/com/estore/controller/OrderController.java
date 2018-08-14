@@ -1,10 +1,13 @@
 package com.estore.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,10 +15,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.estore.bean.Cart;
-import com.estore.bean.JsonMsg;
 import com.estore.bean.Order;
 import com.estore.bean.User;
+import com.estore.service.DataService;
 import com.estore.service.OrderService;
+import com.estore.service.UserService;
+import com.estore.utils.JsonMsg;
+import com.estore.utils.JsonUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
@@ -28,23 +34,48 @@ public class OrderController {
 	@Autowired
 	OrderService orderService;
 	
+	@Autowired
+	DataService  dataService;
 
+	@Value("${SSO_LOGIN_URL}")
+	private String SSO_LOGIN_URL;
 
 	@RequestMapping(value="/order",method=RequestMethod.POST)
 	@ResponseBody
-	public JsonMsg addElement(String items, String address,HttpSession session) throws Exception {
+	public JsonMsg addElement(String items, String address,HttpSession session)  {
 
 		
+		
+		
 		//检查登录...or权限控制
-		User user = (User) session.getAttribute("user");
+		User user = null;
+		try {
+			user = dataService.getUserByToken();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		if(user == null) {
-			return JsonMsg.fail(201, "用户未登录");
 			
+			JsonMsg addResult = JsonMsg.fail(201, "用户未登录");
+			addResult.addResult("loginURL", SSO_LOGIN_URL);
+			addResult.addResult("callback", 
+					session.getServletContext().getAttribute("APP_IP_PORT")
+					+"/showCart.html");
+			
+			//把本次请求的参数返回给客户端, 添加到
+//			HashMap<String, String> hashMap = new HashMap<String, String>();
+//			hashMap.put("items", items);
+//			hashMap.put("address", address);
+//			
+//			addResult.addResult("prm", hashMap);
+			return addResult;
 		}
 		
-		JSONArray jsonArray = JSONArray.fromObject(items);
+//		JSONArray jsonArray = JSONArray.fromObject(items);
+//		List<Cart> list = JSONArray.toList(jsonArray, Cart.class);
 		
-		List<Cart> list = JSONArray.toList(jsonArray, Cart.class);
+		List<Cart> list = JsonUtils.jsonToList(items, Cart.class);   
 
 		//设置订单参数
 		Order order = new Order();

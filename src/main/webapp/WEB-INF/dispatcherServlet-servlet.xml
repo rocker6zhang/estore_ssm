@@ -15,6 +15,9 @@
 		<!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>  -->
 	</context:component-scan>
 	
+	<!-- 加载配制文件 -->
+	<context:property-placeholder location="classpath:my.properties"  ignore-unresolvable="true"  />
+	
 	<!--配置视图解析器，方便页面返回  -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/"></property>
@@ -44,10 +47,10 @@
 			<mvc:mapping path="/**"/>
 			<bean class="com.estore.web.filter.VisitHandlerInterceptor"></bean>
 		</mvc:interceptor>
-		<!-- <mvc:interceptor>
+		<mvc:interceptor>
 			<mvc:mapping path="/**"/>
-			<bean class="cn.itcast.springmvc.filter.HandlerInterceptor2"></bean>
-		</mvc:interceptor> -->
+			<bean class="com.estore.web.filter.LoginHandlerInterceptor"></bean>
+		</mvc:interceptor>
 	</mvc:interceptors>
 	
 

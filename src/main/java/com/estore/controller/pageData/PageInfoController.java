@@ -7,10 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.estore.bean.JsonMsg;
 import com.estore.bean.ProductCategory;
 import com.estore.service.DataService;
 import com.estore.service.ProductCategoryService;
+import com.estore.utils.JsonMsg;
 
 //标注为控制器,  已经配制了自动扫描
 @Controller
@@ -44,6 +44,7 @@ public class PageInfoController {
 		return JsonMsg.success().addResult("userInfo", userPageInfo);
 	}
 	
+	//放在productController里更合适
 	@RequestMapping("/getProductCategory")
 	@ResponseBody
 	public JsonMsg getProductCategory(Integer categoryId) throws Exception {

@@ -13,12 +13,12 @@
 
 
 
-<link href="http://47.104.191.132:8089/css/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-<script type="text/javascript" src="http://47.104.191.132:8089/js/jquery-1.12.4.min.js"></script>
-<script src="http://47.104.191.132:8089/css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://47.104.191.132:8089/js/common_utils.js"></script>
-<script type="text/javascript" src="http://47.104.191.132:8089/js/store/store_common.js"></script>
-<script type="text/javascript" src="http://47.104.191.132:8089/js/store/ProposalList.js"></script>
+<link href="http://127.0.0.1:8089/css/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="http://127.0.0.1:8089/js/jquery-1.12.4.min.js"></script>
+<script src="http://127.0.0.1:8089/css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://127.0.0.1:8089/js/common_utils.js"></script>
+<script type="text/javascript" src="http://127.0.0.1:8089/js/store/store_common.js"></script>
+<script type="text/javascript" src="http://127.0.0.1:8089/js/store/ProposalList.js"></script>
 
 
 </head>

@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.estore.bean.JsonMsg;
 import com.estore.bean.Proposal;
 import com.estore.bean.VisitLog;
 import com.estore.service.ProposalService;
 import com.estore.service.VisitLogService;
+import com.estore.utils.JsonMsg;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
@@ -74,6 +74,7 @@ public class VisitLogController {
 		if (ip == null) {
 			return JsonMsg.fail("ip不能为空");
 		}
+		System.out.println(visitLogService.getVisitLog(588).getVisitTime()+"---------------------------");
 		
 		// 引入PageHelper分页插件
 		// 在查询之前只需要调用，传入页码，以及每页的大小

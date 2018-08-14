@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.estore.bean.JsonMsg;
 import com.estore.bean.PageElement;
 import com.estore.service.IndexElementService;
+import com.estore.utils.JsonMsg;
 import com.estore.utils.UploadUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -40,7 +40,7 @@ public class IndexDataController {
 		if(categoryId  == null) {
 			return JsonMsg.fail("没有收到 category Id");
 		}
-		List<PageElement> pageElementsByCategory = indexElementService.getPageElementsByCategory(categoryId);
+		List<PageElement> pageElementsByCategory = indexElementService.getPageElementsByCategory(categoryId,0);
 		//spring mvc 会自动将返回结果 json 化
 		return JsonMsg.success().addResult("list", pageElementsByCategory);
 	}
@@ -117,7 +117,7 @@ public class IndexDataController {
 			return JsonMsg.fail("没有收到 category Id");
 		}
 		PageHelper.startPage(pageNum, pageSize);
-		List<PageElement> pageElementsByCategory = indexElementService.getPageElementsByCategory(categoryId);
+		List<PageElement> pageElementsByCategory = indexElementService.getPageElementsByCategory(categoryId,pageNum);
 		// pageInfo包装查询后的结果,封装了详细的分页信息,包括有我们查询出来的数据，传入连续显示的页数
 		PageInfo page = new PageInfo(pageElementsByCategory, pageSize);
 		

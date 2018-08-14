@@ -42,7 +42,11 @@ public class VisitHandlerInterceptor implements HandlerInterceptor{
 		if(!path.contains("/image") && !path.contains("/static")) {
 //			System.out.println("======================interceptor visitLogService in=======================");
 			
-			visitLogService.addVisitLog(new VisitLog());
+			try {
+				visitLogService.addVisitLog(new VisitLog());
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		

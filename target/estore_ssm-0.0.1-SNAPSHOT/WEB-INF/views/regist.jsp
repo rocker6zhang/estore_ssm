@@ -7,16 +7,16 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
     <title>注册-个人用户</title>
-    <link type="text/css" rel="stylesheet" href="http://47.104.191.132:8089/css/store/regist.personal.css"/>
-    <link type="text/css" rel="stylesheet" href="http://47.104.191.132:8089/css/store/passport.base.css"/>
-    <script type="text/javascript" src="http://47.104.191.132:8089/js/jquery-1.6.4.js"></script>
-	<script type="text/javascript" src="http://47.104.191.132:8089/js/store/store_common.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://127.0.0.1:8089/css/store/regist.personal.css"/>
+    <link type="text/css" rel="stylesheet" href="http://127.0.0.1:8089/css/store/passport.base.css"/>
+    <script type="text/javascript" src="http://127.0.0.1:8089/js/jquery-1.6.4.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:8089/js/store/store_common.js"></script>
 </head>
 <body onload="set_pram()">
 <div class="w" id="logo">
     <div>
-    	<a href="http://www.estore.com">
-    		<img src="http://47.104.191.132:8089/image/logo-201305.png" alt="store商城" width="170" height="60"/>
+    	<a href="http://www.estore.com/estore_ssm/" id="index_path">
+    		<img src="http://127.0.0.1:8089/image/logo-201305.png" alt="store商城" width="170" height="60"/>
     	</a> <b></b>
     </div>
 </div>
@@ -91,7 +91,7 @@
 					</div>
 					 
 					 <div class="item">
-                        <span class="label"><b class="ftx04">*</b>
+                        <span class="label"><b class="ftx04">*验证码</b>
 						</span>
 						 <div class="fl item-ifo"><img alt="checkCode" src="" onclick="checkCodeImg()" name="checkCodeImgs" width="120px" height="25px"/>
 						</div>
@@ -129,7 +129,7 @@
                 </div>
             </div>
             <div class="phone">
-                <img width="180" height="180" src="http://47.104.191.132:8089/image/313124_300.jpg">
+                <img width="180" height="180" src="http://127.0.0.1:8089/image/313124_300.jpg">
             </div>
             <span class="clr"></span>
         </form>
@@ -202,11 +202,11 @@
 		},
 		doSubmit:function() {
 			$.post(APP_PATH + "/user/register",$("#personRegForm").serialize(), function(data){
-				if(data.status == 100){
+				if(data.code == 100){
 					alert('用户注册成功，请登录！');
 					REGISTER.login();
 				} else {
-					alert("注册失败！");
+					alert("注册失败！原因是"+data.msg);
 				}
 			});
 		},

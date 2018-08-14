@@ -5,22 +5,22 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
     <title>登录</title>
-    <link type="text/css" rel="stylesheet" href="http://47.104.191.132:8089/css/store/login.css"/>
-    <script type="text/javascript" src="http://47.104.191.132:8089/js/jquery-1.6.4.js"></script>
-    <script type="text/javascript" src="http://47.104.191.132:8089/js/store/store_common.js"></script>
+    <link type="text/css" rel="stylesheet" href="http://127.0.0.1:8089/css/store/login.css"/>
+    <script type="text/javascript" src="http://127.0.0.1:8089/js/jquery-1.6.4.js"></script>
+    <script type="text/javascript" src="http://127.0.0.1:8089/js/store/store_common.js"></script>
 </head>
 <body onload="set_pram()">
 <div class="w">
     <div id="logo">
-    	<a href="http://www.estore.com/estore_ssm/" clstag="passport|keycount|login|01">
-    		<img src="http://47.104.191.132:8089/image/logo-201305.png" alt="淘淘" width="170" height="60"/>
+    	<a id="index_path" href="http://www.estore.com/estore_ssm/" clstag="passport|keycount|login|01">
+    		<img src="http://127.0.0.1:8089/image/logo-201305.png" alt="***" width="170" height="60"/>
     	</a><b></b>
    	</div>
 </div>
 <form id="formlogin" method="post" onsubmit="return false;">
     <div class=" w1" id="entry">
         <div class="mc " id="bgDiv">
-            <div id="entry-bg" clstag="passport|keycount|login|02" style="width: 511px; height: 455px; position: absolute; left: -44px; top: -44px; background: url(http://47.104.191.132:8089/image/544a11d3Na5a3d566.png) 0px 0px no-repeat;">
+            <div id="entry-bg" clstag="passport|keycount|login|02" style="width: 511px; height: 455px; position: absolute; left: -44px; top: -44px; background: url(http://127.0.0.1:8089/image/544a11d3Na5a3d566.png) 0px 0px no-repeat;">
 			</div>
             <div class="form ">
                 <div class="item fore1">

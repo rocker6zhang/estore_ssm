@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -17,9 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.estore.bean.JsonMsg;
 import com.estore.bean.User;
+import com.estore.service.DataService;
 import com.estore.service.UserService;
+import com.estore.utils.JsonMsg;
 
 //标注为控制器,  已经配制了自动扫描
 @Controller
@@ -28,6 +29,9 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	DataService dataService;
 	
 
 
@@ -73,6 +77,18 @@ public class UserController {
 	}
 
 	
+	
+	@RequestMapping("/loginByToken")
+	@ResponseBody
+	public JsonMsg loginByToken(String token) throws Exception {
+		boolean login = dataService.isLogin();
+		if(login) {
+			return JsonMsg.success();
+		}
+		return JsonMsg.fail();
+	 
+	}
+	
 	@RequestMapping("/login")
 	@ResponseBody
 	public JsonMsg login(@Valid User u,BindingResult result,HttpSession httpSession,@RequestParam(value = "checkCode") String checkCode) {
@@ -100,6 +116,7 @@ public class UserController {
 				msg+=";";
 			}
 			return JsonMsg.fail(msg);
+		
 		}
 
 		
@@ -114,19 +131,28 @@ public class UserController {
 		httpSession.setAttribute("user", user);
 		
 		return JsonMsg.success().addResult("user", user);
+		
 	}
 
 
 	@RequestMapping("/logout")
 	@ResponseBody
-	public JsonMsg logout(HttpSession httpSession) {
+	public JsonMsg logout() {
 		
-		User user = (User) httpSession.getAttribute("user");
-		httpSession.removeAttribute("user");
-		user = null;
-		return JsonMsg.success();
+		JsonMsg logout = dataService.logout();
+		return logout; 
 	
 	
+	}
+	
+	@RequestMapping("/removeUserInfo")
+	@ResponseBody
+	public JsonMsg removeUserInfo() {
+		
+		JsonMsg logout = dataService.removeUserInfo();
+		return logout;
+		
+		
 	}
 	
 	@RequestMapping("/checkUserName")

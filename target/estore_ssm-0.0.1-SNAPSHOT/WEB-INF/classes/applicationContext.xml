@@ -20,6 +20,7 @@
 	<!--=================== 数据源，事务控制，xxx ================-->
 	<!-- 指定参数配制文件  *.properties-->
 	<context:property-placeholder location="classpath:dbconfig.properties" />
+	<context:property-placeholder location="classpath:my.properties" />
 	
 	<!-- 配制数据源, 使用c3p0 -->
 	<bean id="pooledDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
@@ -41,6 +42,7 @@
 		<property name="idleConnectionTestPeriod" value="600"/>
 		<!--定义在从数据库获取新连接失败后重复尝试的次数。Default:30-->
 		<property name="acquireRetryAttempts" value="30"/>
+		
 		<property name="breakAfterAcquireFailure" value="true"/>
 		<property name="testConnectionOnCheckout" value="false"/>
 		

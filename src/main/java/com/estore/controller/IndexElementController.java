@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.estore.bean.JsonMsg;
 import com.estore.bean.PageElement;
 import com.estore.service.IndexElementService;
+import com.estore.utils.JsonMsg;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 

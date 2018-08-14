@@ -53,7 +53,12 @@ public class VisitLogFilter implements Filter {
 				visitLogService = new VisitLogServiceImpl();
 						
 			}
-			visitLogService.addVisitLog(new VisitLog());
+			try {
+				visitLogService.addVisitLog(new VisitLog());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		
