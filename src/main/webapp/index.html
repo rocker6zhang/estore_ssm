@@ -9,9 +9,9 @@
 <script type="text/javascript" src="static/js/jquery-1.12.4.min.js"></script>
 
 <script src="static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://127.0.0.1:8089/js/common_utils.js"></script>
-<script type="text/javascript" src="http://127.0.0.1:8089/js/store/index.js"></script> 
-<script type="text/javascript" src="http://127.0.0.1:8089/js/store/store_common.js"></script>
+<script type="text/javascript" src="http://47.104.191.132:8089/js/common_utils.js"></script>
+<script type="text/javascript" src="http://47.104.191.132:8089/js/store/index.js"></script> 
+<script type="text/javascript" src="http://47.104.191.132:8089/js/store/store_common.js"></script>
 
 </head>
 <body onload="init()">
@@ -49,7 +49,7 @@
 		  <div class="form-group">
 		    <label for="exampleInputEmail1">
 			check code
-			<img alt="checkCode" src="" onclick="checkCodeImg_proposal(this)" id="checkCodeImg_proposal" width="120px" height="25px"/>
+			<img alt="checkCode" src="" onclick="checkCodeImg_proposal(this)" id="checkCodeImg_proposal_id" width="120px" height="25px"/>
 			</label>
 		    <input type="text" class="form-control" name="checkCode" placeholder="验证码">
 		    
@@ -272,7 +272,7 @@
         </div>
     </div>
     <div class="mid clearfix">
-    	<div class="logo"><a href="#" id="index_path"><img src="http://127.0.0.1:8089/image/logo-201305.png"></a></div>
+    	<div class="logo"><a href="#" id="index_path"><img src="http://47.104.191.132:8089/image/logo-201305.png"></a></div>
         <div class="search">
         	<form><input type="text" value="" placeholder="家装节4免1" class="txt"><input type="submit" value="搜索" class="sub"></form>
             <div class="tags"><a href="#" class="active">相机节</a><a onclick="none_link()">EstoreE卡</a><a onclick="none_link()">多肉萌宠</a><a onclick="none_link()">耐克5折</a><a onclick="none_link()">每150减50</a><a onclick="none_link()">月饼券</a><a onclick="none_link()">胸针</a><a onclick="none_link()">1元专享</a><a onclick="none_link()">笔记本子</a></div>
@@ -298,6 +298,9 @@
        
     </div>
 </div>
+
+
+
 
 <!--banner-->
 <div class="banner">

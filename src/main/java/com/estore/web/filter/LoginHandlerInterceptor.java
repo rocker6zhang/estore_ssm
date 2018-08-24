@@ -1,5 +1,7 @@
 package com.estore.web.filter;
 
+import java.util.Enumeration;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,12 +23,12 @@ public class LoginHandlerInterceptor implements HandlerInterceptor{
 	@Autowired
 	private DataService dataService;
 	
-	//注入失败,  = "http://127.0.0.1:8080/store_sso/user/authentication"
+	//注入失败,  = "http://47.104.191.132:8080/store_sso/user/authentication"
 	//注入失败处理好了, 是应为配制文件的参数配制到spring了, 而spring 和 spring mvc 没有共用.propertie配制文件,  这里贵spring mvc管 so...
 	@Value("${SSO_LOGIN_URL}")
 	private String SSO_LOGIN_URL;
 	
-	// = "127.0.0.1"
+	// = "47.104.191.132"
 	@Value("${APP_IP_PORT}")
 	private String APP_IP_PORT;
 	//要拦截的url
@@ -39,11 +41,8 @@ public class LoginHandlerInterceptor implements HandlerInterceptor{
 	 * 这里可以加入登录校验、权限拦截等
 	 */
 	
-	public boolean preHandle(HttpServletRequest request,
-			HttpServletResponse response, Object handler) throws Exception {
-		// TODO Auto-generated method stub
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		
-//	System.out.println("======================visit interceptor in=======================");
 		boolean flag = true;
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 		//httpServletRequest.getRequestURI()
@@ -64,7 +63,19 @@ public class LoginHandlerInterceptor implements HandlerInterceptor{
 				//访问受控资源, 需要验证登录
 				if(!dataService.isLogin()) {
 					flag = false;
-					response.sendRedirect(SSO_LOGIN_URL+"?callback="+APP_IP_PORT+uri);
+					//携带的参数?
+					Enumeration<String> attributeNames = request.getParameterNames();
+					StringBuilder prm = new StringBuilder();
+					
+					while(attributeNames.hasMoreElements()) {
+						String name = attributeNames.nextElement();
+						prm.append("&");
+						prm.append(name);
+						prm.append("=");
+						prm.append(request.getParameter(name));
+					}
+					
+					response.sendRedirect(SSO_LOGIN_URL+"?callback="+APP_IP_PORT+uri+"?"+prm.toString());
 					break; 
 					
 				}

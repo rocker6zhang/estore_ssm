@@ -52,7 +52,7 @@ public class UitlsTest extends TestCase {
 	public void testOpenAPI() {
 		System.out.println(new Date());
 		
-		System.out.println(OpenAPI.getCityWithIP("127.0.0.1"));
+		System.out.println(OpenAPI.getCityWithIP("47.104.191.132"));
 		System.out.println(OpenAPI.getCityWithIP("192.168.1.1"));
 		System.out.println(OpenAPI.getCityWithIP("116.4.97.132"));
 		System.out.println(OpenAPI.getInfoWithIP("116.4.97.132"));

@@ -40,6 +40,9 @@
 	<mvc:annotation-driven/>
 	
 	
+	<!-- 定义统一异常处理器 -->
+	<bean class="com.estore.exception.TotalExceptionResolver"></bean>
+	
 		<!--拦截器 -->
 	<mvc:interceptors>
 		<!--多个拦截器,顺序执行 -->

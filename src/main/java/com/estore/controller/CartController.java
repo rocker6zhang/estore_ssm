@@ -36,6 +36,15 @@ public class CartController {
 
 
 
+	/**
+	 * 
+	* @Title: addElement  
+	* @Description: TODO 添加购物车
+	* @param @param cart 客户端提交的cart item
+	* @param @param session 
+	* @return JsonMsg    返回类型  
+	* @throws
+	 */
 
 	@RequestMapping(value="/cart",method=RequestMethod.POST)
 	@ResponseBody

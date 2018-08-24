@@ -1,21 +1,13 @@
 package com.estore.controller;
 
-import java.util.Date;
 import java.util.List;
-
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.estore.bean.Proposal;
 import com.estore.bean.VisitLog;
-import com.estore.service.ProposalService;
 import com.estore.service.VisitLogService;
 import com.estore.utils.JsonMsg;
 import com.github.pagehelper.PageHelper;

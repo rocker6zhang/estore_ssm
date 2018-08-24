@@ -5,20 +5,92 @@
 <head>
 <meta charset="utf-8">
 <title>支付页面</title>
-<link href="http://127.0.0.1:8089/css/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="http://127.0.0.1:8089/css/store/style.css" rel="stylesheet" type="text/css">
-<link href="http://127.0.0.1:8089/css/store/index.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://127.0.0.1:8089/js/jquery-1.12.4.min.js"></script>
+<link href="http://47.104.191.132:8089/css/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://47.104.191.132:8089/css/store/style.css" rel="stylesheet" type="text/css">
+<link href="http://47.104.191.132:8089/css/store/index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://47.104.191.132:8089/js/jquery-1.12.4.min.js"></script>
 
-<script src="http://127.0.0.1:8089/css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://127.0.0.1:8089/js/store/index.js"></script>
-<script type="text/javascript" src="http://127.0.0.1:8089/js/common_utils.js"></script>
-<script type="text/javascript" src="http://127.0.0.1:8089/js/store/store_common.js"></script>
+<script src="http://47.104.191.132:8089/css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://47.104.191.132:8089/js/store/index.js"></script>
+<script type="text/javascript" src="http://47.104.191.132:8089/js/common_utils.js"></script>
+<script type="text/javascript" src="http://47.104.191.132:8089/js/store/store_common.js"></script>
 
 </head>
 <body onload="init()">
 
 
+
+
+
+
+<div id="page_modal">
+<!-- Modal 用户反馈 -->
+<div class="modal fade" id="proposal_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">反馈建议</h4>
+      </div>
+      
+	  
+	  <div class="modal-body">
+      	<form id="proposal_form">
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">标题</label>
+		    <input type="email" class="form-control" name="subject" placeholder="标题">
+		  </div>
+		  
+		  <div class="form-group">
+		    <label for="exampleInputPassword1">内容</label>
+		    <textarea type="password" class="form-control" name="content" placeholder="内容" ></textarea>
+		  </div>
+		  
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">你的联系方式(选填)</label>
+		    <input type="email" class="form-control" name="proposalPerson" value="选填">
+		  </div>
+		  
+		  
+		  
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">
+			check code
+			<img alt="checkCode" src="" onclick="checkCodeImg_proposal(this)" id="checkCodeImg_proposal_id" width="120px" height="25px"/>
+			</label>
+		    <input type="text" class="form-control" name="checkCode" placeholder="验证码">
+		    
+		  </div>
+		  
+		
+		
+		<div class="form-group">
+		    <label for="inputPassword3" class="col-sm-2 control-label"></label>
+		    <div class="col-sm-10">
+		      <p id="proposal_msg"></p>
+		    </div>
+		</div>
+		 
+		 
+		</form>
+      </div>
+	  
+      
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="proposal()">提交</button>
+      </div>
+	  
+    </div>
+  </div>
+</div>
+
+
+ 
+ 
+ 
+</div>
 
 <!-- Modal 用户提示 -->
 <div class="modal fade" id="warning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -31,6 +103,7 @@
       
       <div class="modal-body">
         <p>本网站模仿京东搭建,仅供测试。不提供任何形式的服务。谢谢！</p>
+        <p>有任何建议或问题,请点击<a class="btn btn-default" onclick="proposal_page()">反馈</a></p>
       </div>
       
       <div class="modal-footer">
@@ -170,13 +243,12 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-default" data-dismiss="modal" onclick="register_page()">注册</button>
-        <button type="button" class="btn btn-primary" onclick="login()">登录</button>
+        <button type="button" class="btn btn-primary" onclick="login_sso()">登录</button>
       </div>
 	  
     </div>
   </div>
 </div>
-
 
 
 
@@ -207,9 +279,9 @@
         </div>
     </div>
     <div class="mid clearfix">
-    	<div class="logo"><a href="#" id="index_path"><img src="http://127.0.0.1:8089/image/logo-201305.png"></a></div>
+    	<div class="logo"><a href="#" id="index_path"><img src="http://47.104.191.132:8089/image/logo-201305.png"></a></div>
         <div class="search">
-        	<form><input type="text" value="家装节4免1" class="txt"><input type="submit" value="搜索" class="sub"></form>
+        	<form><input type="text" value="" placeholder="家装节4免1" class="txt"><input type="submit" value="搜索" class="sub"></form>
             <div class="tags"><a href="#" class="active">相机节</a><a onclick="none_link()">EstoreE卡</a><a onclick="none_link()">多肉萌宠</a><a onclick="none_link()">耐克5折</a><a onclick="none_link()">每150减50</a><a onclick="none_link()">月饼券</a><a onclick="none_link()">胸针</a><a onclick="none_link()">1元专享</a><a onclick="none_link()">笔记本子</a></div>
         </div>
         <div class="btn" onclick="document.getElementById('cart_path').click();">
@@ -233,6 +305,9 @@
        
     </div>
 </div>
+
+
+
 
 <!-- =======================================内容========================================== -->
 <div class="container-fluid">
@@ -263,6 +338,7 @@
 
 
 <!-- =======================================内容结束========================================== -->
+
 
 
 
@@ -349,20 +425,20 @@
    
    
     <div class="list">
-    	<a onclick="none_link()"><img src="http://127.0.0.1:8089/image/54b8871eNa9a7067e.png"></a>
-        <a onclick="none_link()"><img src="http://127.0.0.1:8089/image/54b8872dNe37a9860.png"></a>
-        <a onclick="none_link()"><img src="http://127.0.0.1:8089/image/56a89b8fNfbaade9a.jpg"></a>
-        <a onclick="none_link()"><img src="http://127.0.0.1:8089/image/54b8875fNad1e0c4c.png"></a>
-        <a onclick="none_link()"><img src="http://127.0.0.1:8089/image/5698dc03N23f2e3b8.jpg"></a>
-        <a onclick="none_link()"><img src="http://127.0.0.1:8089/image/5698dc16Nb2ab99df.jpg"></a>
+    	<a onclick="none_link()"><img src="http://47.104.191.132:8089/image/54b8871eNa9a7067e.png"></a>
+        <a onclick="none_link()"><img src="http://47.104.191.132:8089/image/54b8872dNe37a9860.png"></a>
+        <a onclick="none_link()"><img src="http://47.104.191.132:8089/image/56a89b8fNfbaade9a.jpg"></a>
+        <a onclick="none_link()"><img src="http://47.104.191.132:8089/image/54b8875fNad1e0c4c.png"></a>
+        <a onclick="none_link()"><img src="http://47.104.191.132:8089/image/5698dc03N23f2e3b8.jpg"></a>
+        <a onclick="none_link()"><img src="http://47.104.191.132:8089/image/5698dc16Nb2ab99df.jpg"></a>
     </div>
 </div>
 
 <!--底部导航栏-->
 <div class="sidenav">
     <ul class="navtop">
-        <li class="icon1"><a onclick="none_link()">Estore会员</a></li>
-        <li class="icon2"><a onclick="none_link()">购物车</a></li>
+        <li class="icon1"><a href="/estore_ssm/userHome.html">Estore会员</a></li>
+        <li class="icon2"><a href="/estore_ssm/showCart.html">购物车</a></li>
         <li class="icon3"><a onclick="none_link()">我的关注</a></li>
         <li class="icon4"><a onclick="none_link()">我的足迹</a></li>
         <li class="icon5"><a onclick="none_link()">我的消息</a></li>
@@ -370,9 +446,13 @@
     </ul>
     <ul class="navtop navbot">
         <li class="icon7"><a href="#">顶部</a></li>
-        <li class="icon8"><a onclick="none_link()">反馈</a></li>
+        <li class="icon8"><a onclick="proposal_page()">反馈</a></li>
         <li class="ending">有奖调查</li>
     </ul>
 </div>
+
+
+
+
 </body>
 </html>

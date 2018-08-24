@@ -23,6 +23,7 @@ public class StoreCommonException extends Exception implements StoreException {
 	}
 	
 	public StoreCommonException() {
+		super();
 	}
 	
 	public StoreCommonException(Integer code, boolean b, String message, String pageName) {
@@ -53,7 +54,7 @@ public class StoreCommonException extends Exception implements StoreException {
 	
 	public Integer getCode() {
 		// TODO Auto-generated method stub
-		return null;
+		return code;
 	}
 	
 	public void setCode(Integer code) {
@@ -62,17 +63,17 @@ public class StoreCommonException extends Exception implements StoreException {
 
 	public Boolean isJson() {
 		// TODO Auto-generated method stub
-		return null;
+		return isJson;
 	}
 
 	public String getMessage() {
 		// TODO Auto-generated method stub
-		return null;
+		return super.getMessage();
 	}
 
 	public String getPageName() {
 		// TODO Auto-generated method stub
-		return null;
+		return pageName;
 	}
 	
 	public void setPageName(String pageName) {

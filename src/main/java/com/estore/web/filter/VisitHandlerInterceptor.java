@@ -9,10 +9,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.estore.bean.VisitLog;
 import com.estore.service.VisitLogService;
-import com.estore.service.impl.VisitLogServiceImpl;
 
 public class VisitHandlerInterceptor implements HandlerInterceptor{
 	
+	//protected final Log logger = LogFactory.getLog(getClass());
 	@Autowired
 	VisitLogService visitLogService;
 
@@ -21,11 +21,7 @@ public class VisitHandlerInterceptor implements HandlerInterceptor{
 	 * 返回true表示继续执行，返回false中止执行
 	 * 这里可以加入登录校验、权限拦截等
 	 */
-	public boolean preHandle(HttpServletRequest request,
-			HttpServletResponse response, Object handler) throws Exception {
-		// TODO Auto-generated method stub
-		
-//	System.out.println("======================visit interceptor in=======================");
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 		//httpServletRequest.getRequestURI()
@@ -39,7 +35,7 @@ public class VisitHandlerInterceptor implements HandlerInterceptor{
 //		uri:---/estore_ssm/index/visitLog/list
 //		contextPath:---/estore_ssm
 		//过滤静态资源
-		if(!path.contains("/image") && !path.contains("/static")) {
+		if(!path.contains("/image") && !path.contains("/static") && !path.contains("/css") ) {
 //			System.out.println("======================interceptor visitLogService in=======================");
 			
 			try {

@@ -1,7 +1,5 @@
 package com.estore.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -19,13 +17,11 @@ import com.estore.bean.Order;
 import com.estore.bean.User;
 import com.estore.service.DataService;
 import com.estore.service.OrderService;
-import com.estore.service.UserService;
 import com.estore.utils.JsonMsg;
 import com.estore.utils.JsonUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
-import net.sf.json.JSONArray;
 
 //标注为控制器,  已经配制了自动扫描
 @Controller
@@ -39,10 +35,17 @@ public class OrderController {
 
 	@Value("${SSO_LOGIN_URL}")
 	private String SSO_LOGIN_URL;
+	
+	@Value("${APP_IP_PORT}")
+	private String APP_IP_PORT;
+	
+	@Value("${APP_ROOT}")
+	private String APP_ROOT;
+	
 
 	@RequestMapping(value="/order",method=RequestMethod.POST)
 	@ResponseBody
-	public JsonMsg addElement(String items, String address,HttpSession session)  {
+	public JsonMsg addElement(String items, String address,HttpSession session) throws Exception  {
 
 		
 		
@@ -59,9 +62,7 @@ public class OrderController {
 			
 			JsonMsg addResult = JsonMsg.fail(201, "用户未登录");
 			addResult.addResult("loginURL", SSO_LOGIN_URL);
-			addResult.addResult("callback", 
-					session.getServletContext().getAttribute("APP_IP_PORT")
-					+"/showCart.html");
+			addResult.addResult("callback",  APP_IP_PORT + APP_ROOT+ "/page/loginCallback?callback=" + "http://" + APP_IP_PORT + APP_ROOT+ "/showCart.html");
 			
 			//把本次请求的参数返回给客户端, 添加到
 //			HashMap<String, String> hashMap = new HashMap<String, String>();
@@ -158,7 +159,7 @@ public class OrderController {
 		
 		List<Order> list = orderService.getOrderInfo(user);
 		// pageInfo包装查询后的结果,封装了详细的分页信息,包括有我们查询出来的数据，传入连续显示的页数
-		PageInfo page = new PageInfo(list, 5);
+		PageInfo<Order> page = new PageInfo<Order>(list, 5);
 
 		//spring mvc 会自动将返回结果 json 化
 		return JsonMsg.success().addResult("pageInfo", page);

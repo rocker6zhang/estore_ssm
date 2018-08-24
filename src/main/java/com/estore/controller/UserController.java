@@ -7,7 +7,6 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
-import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -64,16 +63,11 @@ public class UserController {
 			return JsonMsg.fail(msg);
 		}
 
-		String msg = userService.regist(u);
+		JsonMsg jsonMsg = userService.regist(u);
 		
-		//msg不等于null 表示有异常
-		if(msg != null) {
-			
-			return JsonMsg.fail(msg);
-		}
 		
 		//spring mvc 会自动将返回结果 json 化
-		return JsonMsg.success();
+		return jsonMsg;
 	}
 
 	
@@ -176,26 +170,7 @@ public class UserController {
 	}
 	
 	
-	/**
-	 * 
-	* @Title: userActive  
-	* @Description: TODO 校验用户名是否可用  
-	* @param @param activeCode
-	* @param @return    设定文件  
-	* @return JsonMsg    jsonMsg.code 等于 100表示true  
-	* @throws
-	 */
-	@RequestMapping("/userActive")
-	@ResponseBody
-	public JsonMsg userActive(@RequestParam(value = "activeCode") String activeCode) {
-
-		String msg = userService.active(activeCode);
-		if(msg != null) {
-			return JsonMsg.fail(msg);
-		}
-		
-		return JsonMsg.success("用户名可以使用");
-	}
+	
 	
 	@RequestMapping("/token/{token}")
 	@ResponseBody
