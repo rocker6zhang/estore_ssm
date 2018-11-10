@@ -14,6 +14,8 @@ import com.estore.dao.CartMapper;
 import com.estore.dao.ProductMapper;
 import com.estore.dao.UserMapper;
 import com.estore.service.VisitLogService;
+import com.estore.service.impl.LogFileServiceImpl;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 
 
 /**
@@ -23,18 +25,22 @@ import com.estore.service.VisitLogService;
  * @author: zw
  * @date: 2018年4月11日 上午11:19:12
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:applicationContext.xml"})
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations={"classpath:applicationContext.xml"})
 public class ServiceTest extends TestCase {
 	//com.estore.dao.ProductMapper.java
 	//com.estore.dao.ProductMapper
-	@Autowired
-	VisitLogService visitLogService;
-	
+//	@Autowired
+//	VisitLogService visitLogService;
+//	
 	
 	
 	@Test
 	public void test() {
-		System.out.println(visitLogService.getVisitLog(588).getVisitTime());
+//		System.out.println(visitLogService.getVisitLog(588).getVisitTime());
+	}
+	@Test
+	public void logFiletest() {
+		System.out.println(new LogFileServiceImpl().getAppLogFileList("E:\\upload"));
 	}
 }

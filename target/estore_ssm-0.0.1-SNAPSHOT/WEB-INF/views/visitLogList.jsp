@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>product list</title>
+<title>visit log list</title>
 
 <% pageContext.setAttribute("APP_PATH", request.getContextPath()); %>
 

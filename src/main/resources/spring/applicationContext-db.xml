@@ -21,9 +21,9 @@
 		<!-- 连接池中的连接超过3600秒没有使用就弃用,0表示不检查 -->
 		<property name="maxIdleTime" value="3600"/>
 		<!--连接池中保留的最小连接数。-->
-		<property name="minPoolSize" value="10"/>
+		<property name="minPoolSize" value="5"/>
 		<!--连接池中保留的最大连接数。Default:15-->
-		<property name="maxPoolSize" value="100"/>
+		<property name="maxPoolSize" value="15"/>
 		<!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default:3-->
 		<property name="acquireIncrement" value="3"/>
 		<property name="maxStatements" value="0"/>
@@ -83,9 +83,9 @@
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<!-- 所有方法都是事务方法 -->
-			<tx:method name="*"/>
-			<!--以get开始的所有方法  配制成只读,应为这些是查询请求,  只读效率会比较高,并发性好 -->
-			<tx:method name="get*" read-only="true"/>
+			<tx:method name="*" propagation="REQUIRED" />
+			<!--以get开始的所有方法  配制成只读,应为这些是查询请求,  只读效率会比较高,并发性好 事务传播设置为: 没有事务就算了-->
+			<tx:method name="get*" read-only="true" propagation="SUPPORTS"/>
 		</tx:attributes>
 	</tx:advice>
 	

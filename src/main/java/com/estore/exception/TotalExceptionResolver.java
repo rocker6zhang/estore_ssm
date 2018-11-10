@@ -1,9 +1,5 @@
 package com.estore.exception;
 
-import java.io.IOException;
-import java.util.Arrays;
-
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,8 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.estore.exception.impl.StoreCommonException;
 import com.estore.utils.JsonMsg;
 import com.estore.utils.JsonUtils;
-import com.mchange.v2.log.PackageNames;
-import com.sun.java.browser.dom.DOMAccessException;
 
 /**
  * 
@@ -43,6 +37,8 @@ public class TotalExceptionResolver implements HandlerExceptionResolver {
 			//输出异常
 			
 			logger.error(ex.getMessage() ,ex);
+			logger.error("request.getRequestURI() == "+request.getRequestURI());
+			
 			//处理异常
 			doException = doException(request, response, handler, ex);
 		}catch(Exception e) {

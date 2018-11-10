@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <title>Estore 反馈列表</title>
-<link href="http://47.104.191.132:8089/css/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="http://47.104.191.132:8089/css/store/style.css" rel="stylesheet" type="text/css">
-<link href="http://47.104.191.132:8089/css/store/index.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://47.104.191.132:8089/js/jquery-1.12.4.min.js"></script>
+<link href="http://127.0.0.1:8089/css/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://127.0.0.1:8089/css/store/style.css" rel="stylesheet" type="text/css">
+<link href="http://127.0.0.1:8089/css/store/index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://127.0.0.1:8089/js/jquery-1.12.4.min.js"></script>
 
-<script src="http://47.104.191.132:8089/css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://47.104.191.132:8089/js/store/showOrder.js"></script>
-<script type="text/javascript" src="http://47.104.191.132:8089/js/common_utils.js"></script>
-<script type="text/javascript" src="http://47.104.191.132:8089/js/store/store_common.js"></script>
+<script src="http://127.0.0.1:8089/css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://127.0.0.1:8089/js/store/showOrder.js"></script>
+<script type="text/javascript" src="http://127.0.0.1:8089/js/common_utils.js"></script>
+<script type="text/javascript" src="http://127.0.0.1:8089/js/store/store_common.js"></script>
 
 </head>
 <body onload="init()">
@@ -275,9 +275,9 @@
         </div>
     </div>
     <div class="mid clearfix">
-    	<div class="logo"><a href="#" id="index_path"><img src="http://47.104.191.132:8089/image/logo-201305.png"></a></div>
+    	<div class="logo"><a href="#" id="index_path"><img src="http://127.0.0.1:8089/image/logo-201305.png"></a></div>
         <div class="search">
-        	<form><input type="text" value="" placeholder="家装节4免1" class="txt"><input type="submit" value="搜索" class="sub"></form>
+        	<form id="search_from" action="/estore_ssm/search/productSearch"><input type="text" name="keyWord" placeholder="java 参考书" class="txt"><input type="submit" value="搜索" class="sub"></form>
             <div class="tags"><a href="#" class="active">相机节</a><a onclick="none_link()">EstoreE卡</a><a onclick="none_link()">多肉萌宠</a><a onclick="none_link()">耐克5折</a><a onclick="none_link()">每150减50</a><a onclick="none_link()">月饼券</a><a onclick="none_link()">胸针</a><a onclick="none_link()">1元专享</a><a onclick="none_link()">笔记本子</a></div>
         </div>
         <div class="btn" onclick="document.getElementById('cart_path').click();">
@@ -311,7 +311,7 @@
 
 <div class="row">
   <div class="col-md-2"> </div>
-  <div class="col-md-8"> <img src="http://47.104.191.132:8089/image/cue.png"/>订单列表<br/><br/></div>
+  <div class="col-md-8"> <img src="http://127.0.0.1:8089/image/cue.png"/>订单列表<br/><br/></div>
   <div class="col-md-2"> </div>
 </div>
 
@@ -438,12 +438,12 @@
    
    
     <div class="list">
-    	<a onclick="none_link()"><img src="http://47.104.191.132:8089/image/54b8871eNa9a7067e.png"></a>
-        <a onclick="none_link()"><img src="http://47.104.191.132:8089/image/54b8872dNe37a9860.png"></a>
-        <a onclick="none_link()"><img src="http://47.104.191.132:8089/image/56a89b8fNfbaade9a.jpg"></a>
-        <a onclick="none_link()"><img src="http://47.104.191.132:8089/image/54b8875fNad1e0c4c.png"></a>
-        <a onclick="none_link()"><img src="http://47.104.191.132:8089/image/5698dc03N23f2e3b8.jpg"></a>
-        <a onclick="none_link()"><img src="http://47.104.191.132:8089/image/5698dc16Nb2ab99df.jpg"></a>
+    	<a onclick="none_link()"><img src="http://127.0.0.1:8089/image/54b8871eNa9a7067e.png"></a>
+        <a onclick="none_link()"><img src="http://127.0.0.1:8089/image/54b8872dNe37a9860.png"></a>
+        <a onclick="none_link()"><img src="http://127.0.0.1:8089/image/56a89b8fNfbaade9a.jpg"></a>
+        <a onclick="none_link()"><img src="http://127.0.0.1:8089/image/54b8875fNad1e0c4c.png"></a>
+        <a onclick="none_link()"><img src="http://127.0.0.1:8089/image/5698dc03N23f2e3b8.jpg"></a>
+        <a onclick="none_link()"><img src="http://127.0.0.1:8089/image/5698dc16Nb2ab99df.jpg"></a>
     </div>
 </div>
 
@@ -451,15 +451,15 @@
 <div class="sidenav">
     <ul class="navtop">
         <li class="icon1"><a href="/estore_ssm/userHome.html">Estore会员</a></li>
-        <li class="icon2"><a href="/estore_ssm/showCart.html">购物车</a></li>
+        <li class="icon2" onclick="location.href = '/estore_ssm/showCart.html';"><a href="/estore_ssm/showCart.html">购物车</a></li>
         <li class="icon3"><a onclick="none_link()">我的关注</a></li>
         <li class="icon4"><a onclick="none_link()">我的足迹</a></li>
         <li class="icon5"><a onclick="none_link()">我的消息</a></li>
         <li class="icon6"><a onclick="none_link()">咨询JIMI</a></li>
     </ul>
     <ul class="navtop navbot">
-        <li class="icon7"><a href="#">顶部</a></li>
-        <li class="icon8"><a onclick="proposal_page()">反馈</a></li>
+        <li class="icon7" onclick="location.href = '#';"><a href="#">顶部</a></li>
+        <li class="icon8" onclick="proposal_page()"><a onclick="proposal_page()">反馈</a></li>
         <li class="ending">有奖调查</li>
     </ul>
 </div>
