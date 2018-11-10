@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8">
 <title>Estore首页</title>
-<link href="http://127.0.0.1:8089/css/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="http://127.0.0.1:8089/css/store/style.css" rel="stylesheet" type="text/css">
-<link href="http://127.0.0.1:8089/css/store/index.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="http://127.0.0.1:8089/js/jquery-1.12.4.min.js"></script>
+<link href="http://47.104.191.132:8089/css/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://47.104.191.132:8089/css/store/style.css" rel="stylesheet" type="text/css">
+<link href="http://47.104.191.132:8089/css/store/index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://47.104.191.132:8089/js/jquery-1.12.4.min.js"></script>
 
-<script src="http://127.0.0.1:8089/css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="http://127.0.0.1:8089/js/store/index.js"></script>
-<script type="text/javascript" src="http://127.0.0.1:8089/js/common_utils.js"></script>
+<script src="http://47.104.191.132:8089/css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://47.104.191.132:8089/js/store/index.js"></script>
+<script type="text/javascript" src="http://47.104.191.132:8089/js/common_utils.js"></script>
 </head>
 <body onload="init()">
 
@@ -275,7 +275,7 @@
         </div>
     </div>
     <div class="mid clearfix">
-    	<div class="logo"><a href="#" id="index_path"><img src="http://127.0.0.1:8089/image/logo-201305.png"></a></div>
+    	<div class="logo"><a href="#" id="index_path"><img src="http://47.104.191.132:8089/image/logo-201305.png"></a></div>
         <div class="search">
         	<form id="search_from" action="/estore_ssm/search/productSearch"><input type="text" name="keyWord" placeholder="java 参考书" class="txt"><input type="submit" value="搜索" class="sub"></form>
             <div class="tags"><a href="#" class="active">相机节</a><a onclick="none_link()">EstoreE卡</a><a onclick="none_link()">多肉萌宠</a><a onclick="none_link()">耐克5折</a><a onclick="none_link()">每150减50</a><a onclick="none_link()">月饼券</a><a onclick="none_link()">胸针</a><a onclick="none_link()">1元专享</a><a onclick="none_link()">笔记本子</a></div>
@@ -404,12 +404,12 @@
    
    
     <div class="list">
-    	<a onclick="none_link()"><img src="http://127.0.0.1:8089/image/54b8871eNa9a7067e.png"></a>
-        <a onclick="none_link()"><img src="http://127.0.0.1:8089/image/54b8872dNe37a9860.png"></a>
-        <a onclick="none_link()"><img src="http://127.0.0.1:8089/image/56a89b8fNfbaade9a.jpg"></a>
-        <a onclick="none_link()"><img src="http://127.0.0.1:8089/image/54b8875fNad1e0c4c.png"></a>
-        <a onclick="none_link()"><img src="http://127.0.0.1:8089/image/5698dc03N23f2e3b8.jpg"></a>
-        <a onclick="none_link()"><img src="http://127.0.0.1:8089/image/5698dc16Nb2ab99df.jpg"></a>
+    	<a onclick="none_link()"><img src="http://47.104.191.132:8089/image/54b8871eNa9a7067e.png"></a>
+        <a onclick="none_link()"><img src="http://47.104.191.132:8089/image/54b8872dNe37a9860.png"></a>
+        <a onclick="none_link()"><img src="http://47.104.191.132:8089/image/56a89b8fNfbaade9a.jpg"></a>
+        <a onclick="none_link()"><img src="http://47.104.191.132:8089/image/54b8875fNad1e0c4c.png"></a>
+        <a onclick="none_link()"><img src="http://47.104.191.132:8089/image/5698dc03N23f2e3b8.jpg"></a>
+        <a onclick="none_link()"><img src="http://47.104.191.132:8089/image/5698dc16Nb2ab99df.jpg"></a>
     </div>
 </div>
 

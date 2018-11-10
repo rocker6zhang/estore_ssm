@@ -23,12 +23,12 @@ public class LoginHandlerInterceptor implements HandlerInterceptor{
 	@Autowired
 	private DataService dataService;
 	
-	//注入失败,  = "http://127.0.0.1:8080/store_sso/user/authentication"
+	//注入失败,  = "http://47.104.191.132:8080/store_sso/user/authentication"
 	//注入失败处理好了, 是应为配制文件的参数配制到spring了, 而spring 和 spring mvc 没有共用.propertie配制文件,  这里贵spring mvc管 so...
 	@Value("${SSO_LOGIN_URL}")
 	private String SSO_LOGIN_URL;
 	
-	// = "127.0.0.1"
+	// = "47.104.191.132"
 	@Value("${APP_IP_PORT}")
 	private String APP_IP_PORT;
 	//要拦截的url
